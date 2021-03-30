@@ -1,0 +1,149 @@
+@import './_includes/colors'
+
+@keyframes blink 
+  0%
+    opacity: 0
+  50%
+    opacity: 1
+  100%
+    opacity: 0
+
+
+.section-one
+  // padding: 1rem
+  height: 100vh !important
+  // box-sizing: border-box
+  &--wrapper
+    position: relative
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 100%
+    height: 100%
+    // padding: 1rem
+    // background: $dark-back
+    
+    &__content
+      position: relative
+      width: 100%
+      height: 100%
+      // border: .3rem solid black
+      background: white
+      padding: 2rem 3rem
+      box-sizing: border-box
+      // border-radius: 8px
+      // box-shadow: 0 0 1rem rgba(black, .5)
+      // overflow-x: clip
+      &--title
+        position: absolute
+        top: 50% !important
+        // mix-blend-mode: luminosity
+        .page-title
+          margin: 0
+          // letter-spacing: -20px
+          font:
+            // family: Times
+            size: 19vw
+            weight: bold
+          color: $red
+          line-height: .85
+
+        .page-subtitle
+          color: $black
+          margin: 0 0 0 .7rem
+          // line-height: 1
+          padding: .5rem 0 .3rem
+          font:
+            size: 1.4vw
+            weight: 400
+          background: rgba($light-fill, .4)
+      
+      .triangle
+        position: absolute
+        right: -830px !important
+        left: auto !important
+        top: -400px !important
+        width: 0
+        height: 0
+        border-left: 500px solid transparent
+        border-right: 500px solid transparent
+        border-bottom: 1000px solid rgba($red, 1)
+        mix-blend-mode: hard-light
+      .triangleB
+        position: absolute
+        right: 40% !important
+        top: 50px !important
+        left: auto !important
+        width: 0
+        height: 0
+        border-left: 20px solid transparent
+        border-right: 20px solid transparent
+        border-bottom: 40px solid rgba($light-fill, .8)
+      .triangle2
+        position: absolute
+        right: 230px !important
+        top: 50% !important
+        left: auto !important
+        width: 0
+        height: 0
+        border-left: 20px solid transparent
+        border-right: 20px solid transparent
+        border-top: 40px solid rgba($light-fill, .4)
+      .triangle3
+        position: absolute
+        right: -700px !important
+        bottom: 0px !important
+        top: auto !important
+        left: auto !important
+        width: 0
+        height: 0
+        border-left: 500px solid transparent
+        border-right: 500px solid transparent
+        border-bottom: 1000px solid rgba($light-fill, 1)
+        mix-blend-mode: darken
+      // .rectangle
+      //   width: 70vw
+      //   height: 40vh
+      //   top: 40% !important
+      //   background: rgba($red, 1)
+      //   mix-blend-mode: hard-light
+      .bottom-arrow-container
+        position: absolute
+        top: auto !important
+        bottom: 4rem
+        left: 4rem !important
+        width: 20px
+        height: 40px
+        // background: black
+        .bottom-arrow
+          position: absolute
+          width: 0
+          height: 0
+          border-left: 10px solid transparent
+          border-right: 10px solid transparent
+          border-top: 20px solid rgba($light-fill, .8)
+          &--1
+            animation: blink 2000ms infinite
+          &--2
+            top: 20px
+            animation: blink 2000ms infinite 200ms
+          &--3
+            top: 40px
+            animation: blink 2000ms infinite 400ms
+      &--image
+        position: absolute
+        right: -2rem !important
+        left: auto !important
+        width: 80vw
+        height: 100%
+        // width: 50%
+        // height: 80vh
+        mix-blend-mode: soft-light
+
+        img
+          object-fit: contain
+          object-position: right
+          // width: 30vw
+          width: 80vw
+          height: 100vh
+          // opacity: .5

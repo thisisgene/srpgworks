@@ -1,0 +1,41 @@
+@import './_includes/colors'
+
+.menu
+  position: fixed
+  z-index: 2
+  padding: 1rem 4rem 0
+  display: flex
+  font-size: .8rem
+  &--title
+    display: flex
+    justify-content: center
+    align-items: center
+    
+    &__img
+      // display: block
+      // margin-top: -5px
+      // margin-right: 5px
+    &__text
+      font:
+        weight: bold
+      // margin-top: 3px
+      margin-left: 3px
+
+  &--nav
+    ul
+      list-style: none
+      display: flex
+      li
+        margin-left: 2rem
+        color: $black
+        cursor: pointer
+        transition: transform 200ms ease-in-out
+        opacity: .6
+        transform-origin: top left
+        line-height: 1
+        .li-sub
+          font-size: .15px
+          text-align: right
+        &:hover
+          opacity: 1
+          transform: scale(10.5)

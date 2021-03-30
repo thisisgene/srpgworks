@@ -1,0 +1,22 @@
+@font-face {
+  font-family: Libby;
+  font-weight: 400;
+  src: url(./fonts/LibbyRegular.ttf);
+}
+@font-face {
+  font-family: Libby;
+  font-weight: 700;
+  src: url(./fonts/LibbyBold.ttf);
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Libby, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
