@@ -30,7 +30,7 @@ const PageContent = ({ page }) => {
         <motion.h1
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          // className={styles["page-title"]}
+          className={styles["page-title"]}
           layoutId={`title-${page.title}`}
         >
           {page.title}
