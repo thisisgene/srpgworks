@@ -1,18 +1,19 @@
 import React, { useEffect, useRef } from "react";
 import Parallax from "parallax-js";
-
+import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 import cx from "classnames";
 import styles from "../styles/Style.module.sass";
 
-const ParallaxTest = ({ page }) => {
+const PageContent = ({ page }) => {
   const sceneEl = useRef(null);
-  console.log("here: ", page.title);
+
   useEffect(() => {
     const parallaxInstance = new Parallax(sceneEl.current, {
       relativeInput: true,
-      hoverOnly: true,
+      // hoverOnly: true,
     });
 
     parallaxInstance.enable();
@@ -23,19 +24,30 @@ const ParallaxTest = ({ page }) => {
   return (
     <div className={styles[`${page.className}--wrapper`]}>
       <div
+        // data-depth="0.4"
+        className={cx("layer", styles[`${page.className}--wrapper--title`])}
+      >
+        <motion.h1
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          // className={styles["page-title"]}
+          layoutId={`title-${page.title}`}
+        >
+          {page.title}
+        </motion.h1>
+        <h2 className={styles["page-subtitle"]}>{page.subtitle}</h2>
+        {page.link && (
+          <div>
+            <Link href={`/${page.link.anchor}`} passHref>
+              {page.link.text}
+            </Link>
+          </div>
+        )}
+      </div>
+      <div
         ref={sceneEl}
         className={styles[`${page.className}--wrapper__content`]}
       >
-        <div
-          // data-depth="0.4"
-          className={cx(
-            "layer",
-            styles[`${page.className}--wrapper__content--title`]
-          )}
-        >
-          <h1 className={styles["page-title"]}>{page.title}</h1>
-          <h2 className={styles["page-subtitle"]}>{page.subtitle}</h2>
-        </div>
         {/* <div className={styles["shape-container"]}> */}
         <div data-depth="3.5" className={cx("layer", styles["triangle"])}></div>
         <div
@@ -66,6 +78,7 @@ const ParallaxTest = ({ page }) => {
           ></div>
         </div>
         {/* </div> */}
+
         {page.img && (
           <div
             className="layer"
@@ -87,4 +100,4 @@ const ParallaxTest = ({ page }) => {
   );
 };
 
-export default ParallaxTest;
+export default PageContent;

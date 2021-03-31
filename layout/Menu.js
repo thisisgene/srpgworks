@@ -5,7 +5,7 @@ import styles from "../styles/Menu.module.sass";
 
 const Menu = () => {
   return (
-    <div className={styles["menu"]}>
+    <div className={styles["menu"]} id="menu">
       <div className={styles["menu--title"]}>
         <Image
           className={styles["menu--title__img"]}
@@ -13,22 +13,31 @@ const Menu = () => {
           width="10px"
           height="10px"
         />
-        <div className={styles["menu--title__text"]}>SRPG</div>
+        <div className={styles["menu--title__text"]}>
+          <a data-menuanchor="home" href="#home">
+            SRPG
+          </a>
+        </div>
       </div>
       <div className={styles["menu--nav"]}>
         <ul>
           <li>
-            WORKS
-            <div className={styles["li-sub"]}>
-              Find all the works of Serious Pigeon.
-            </div>
+            <a data-menuanchor="works" href="#works">
+              WORKS
+            </a>
+            <div className={styles["li-sub"]}>All of the serious works.</div>
           </li>
-          <li>ABOUT</li>
           <li>
-            CONTACT
-            <div className={styles["li-sub"]}>
-              Reach out and get in contact.
-            </div>
+            <a data-menuanchor="about" href="#about">
+              ABOUT
+            </a>
+            <div className={styles["li-sub"]}>Why so serious, pigeon?</div>
+          </li>
+          <li>
+            <a data-menuanchor="contact" href="#contact">
+              CONTACT
+            </a>
+            <div className={styles["li-sub"]}>Reach out and get in touch.</div>
           </li>
         </ul>
       </div>

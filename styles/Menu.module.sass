@@ -34,8 +34,11 @@
         transform-origin: top left
         line-height: 1
         .li-sub
+          opacity: 0
           font-size: .15px
           text-align: right
         &:hover
           opacity: 1
           transform: scale(10.5)
+          &> .li-sub
+            opacity: 1

@@ -4,7 +4,7 @@ import Parallax from "parallax-js";
 
 import Head from "next/head";
 
-import ParallaxTest from "../components/ParallaxTest";
+import PageContent from "../components/PageContent";
 
 import Menu from "../layout/Menu";
 
@@ -26,16 +26,28 @@ class App extends React.Component {
       fullpages: [
         {
           title: "SRPG",
+          id: "home",
           subtitle: "Works by Serious Pigeon",
           text: "Section 1",
           img: "pigeon.svg",
-          className: "section-one",
+          className: "home",
         },
         {
-          text: "Section 2",
+          title: "Works",
+          id: "works",
+          link: {
+            text: "More",
+            anchor: "works",
+          },
+          className: "works",
         },
         {
-          text: "Section 3",
+          title: "About",
+          id: "about",
+        },
+        {
+          title: "Contact",
+          id: "contact",
         },
       ],
     };
@@ -54,6 +66,11 @@ class App extends React.Component {
   render() {
     const { fullpages } = this.state;
 
+    const options = {
+      animateAnchor: true,
+    };
+    const anchors = ["home", "works", "about", "contact"];
+
     if (!fullpages.length) {
       return null;
     }
@@ -65,6 +82,10 @@ class App extends React.Component {
         </Head>
         <Menu />
         <ReactFullpage
+          // options
+          anchors={anchors}
+          menu={"#menu"}
+          css3={false}
           // navigation
           // pluginWrapper={pluginWrapper}
           onLeave={this.onLeave.bind(this)}
@@ -74,15 +95,18 @@ class App extends React.Component {
             <ReactFullpage.Wrapper>
               {fullpages.map((page) => (
                 <div
-                  key={page.text}
+                  // id={page.id}
+                  key={page.id}
                   className={cx("section", styles[page.className])}
                 >
-                  <ParallaxTest page={page} />
+                  <PageContent page={page} />
                 </div>
               ))}
+              <div className={styles["fullscreen-back"]} />
               {/* <div className="section">
                 <ParallaxTest />
               </div> */}
+              {/* <div className={styles["fullscreen-back"]}>hallo</div> */}
             </ReactFullpage.Wrapper>
           )}
         />
