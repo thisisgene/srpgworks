@@ -26,6 +26,7 @@
       list-style: none
       display: flex
       li
+        position: relative
         margin-left: 2rem
         color: $black
         cursor: pointer
@@ -34,11 +35,18 @@
         transform-origin: top left
         line-height: 1
         .li-sub
+          // display: block
           opacity: 0
-          font-size: .15px
+          font-size: .2px
+          transform: scale(0)
           text-align: right
+          position: absolute
+          top: 20px
+          right: 0
         &:hover
           opacity: 1
-          transform: scale(10.5)
+          transform: scale(3)
+          
           &> .li-sub
+            transform: scale(4)
             opacity: 1

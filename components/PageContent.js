@@ -27,20 +27,11 @@ const PageContent = ({ page }) => {
         // data-depth="0.4"
         className={cx("layer", styles[`${page.className}--wrapper--title`])}
       >
-        <motion.h1
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          className={styles["page-title"]}
-          layoutId={`title-${page.title}`}
-        >
-          {page.title}
-        </motion.h1>
+        <motion.h1 layoutId="title-works">WORKS</motion.h1>
         <h2 className={styles["page-subtitle"]}>{page.subtitle}</h2>
         {page.link && (
           <div>
-            <Link href={`/${page.link.anchor}`} passHref>
-              {page.link.text}
-            </Link>
+            <Link href={`/${page.link.anchor}`}>{page.link.text}</Link>
           </div>
         )}
       </div>
